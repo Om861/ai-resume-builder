@@ -43,7 +43,7 @@ const ResumeBuilder = () => {
     professional_summary: "",
     experience: [],
     education: [],
-    project: [],
+    projects: [],
     skills: [],
     template: "classic",
     accent_color: "#3b82f6",
@@ -320,17 +320,16 @@ const ResumeBuilder = () => {
 
                 {/* Project Form (Array of objects) */}
                 {activeSection.id === "projects" && (
-                  <ProjectForm
-                    data={resumeData.project}
-                    onChange={(data) =>
-                      // Updater function for the project array
-                      setResumeData((prev) => ({
-                        ...prev,
-                        project: data,
-                      }))
-                    }
-                  />
-                )}
+  <ProjectForm
+    data={resumeData.projects || []}
+    onChange={(data) =>
+      setResumeData((prev) => ({
+        ...prev,
+        projects: data,
+      }))
+    }
+  />
+)}
 
                 {/* Skills Form (Array of objects/strings) */}
                 {activeSection.id === "skills" && (
